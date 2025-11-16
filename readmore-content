@@ -1,0 +1,30 @@
+<style> 
+.readmore-box .primary-text { 
+display: -webkit-box; -webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden; 
+text-overflow: ellipsis; 
+transition: max-height 0.5s ease-in-out;
+max-height: 3.4em; } 
+
+.readmore-box.expanded .primary-text {
+-webkit-line-clamp: unset !important;
+max-height: 1000px; 
+transition: max-height 0.5s ease-in-out;
+overflow: visible;
+text-overflow: unset; 
+display: block; }
+.readmore-btn{ cursor: pointer; } 
+.readmore{ margin-top:20px !important; } 
+</style>
+
+<script>
+jQuery(function($){
+    $(".readmore-btn").on("click", function(){
+        let box = $(this).closest(".readmore-box");
+        box.toggleClass("expanded");
+        $(this).text( box.hasClass("expanded") ? "Read Less >" : "Read More >" );
+    });
+});
+
+</script>
